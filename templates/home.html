@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajang Chol Aguer Deng - Mentorship Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Varela+Round&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to the Mentorship Platform!</h1>
+        <p>Personalized guidance to accelerate your growth with Ajang Chol Aguer Deng.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        {% if 'user_id' in session %}
+            <p>Hello, {{ session['username'] }}!</p>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        {% endif %}
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h2>Transform Your Future - Book a Mentorship Session</h2>
+    </div>
+
+    <!-- About Section -->
+    <main>
+        <section class="about">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>Hi, I'm Ajang Chol Aguer Deng. I'm passionate about mentorship and empowering individuals. My one-on-one sessions focus on helping you unlock your full potential—both personally and professionally. Let's work together toward your goals!</p>
+                </div>
+                <div class="about-image-container">
+                    <img class="about-image" src="{{ url_for('static', filename='images/americain.jpg') }}" alt="Ajang Chol Aguer Deng">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+        <!-- Booking Section -->
+        <section class="booking">
+            <h2>Book a Mentorship Session</h2>
+            <p>Take the first step toward transforming your career or personal life by booking a session with me. Whether you're seeking career guidance, personal growth, or business insights, I'm here to help!</p>
+            {% if 'user_id' in session %}
+                <a class="button" href="{{ url_for('book_mentorship') }}">Book Now</a>
+            {% else %}
+                <p><a href="{{ url_for('login') }}">Login</a> to book a mentorship session!</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Ajang Chol Aguer Deng. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a>
+        </div>
+        
+    </footer>
+</body>
+</html>

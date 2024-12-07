@@ -1,0 +1,163 @@
+/* General body styling */
+body {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #c20690;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #c20690;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar a:hover {
+    background-color: #010101;
+    padding-left: 10px;
+    transition: 0.3s;
+}
+
+/* Main Content Styling */
+.main {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.header {
+    background-color: white;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    color: #c20690;
+}
+
+/* Form Styling */
+.form-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #c20690;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0a0a0a;
+}
+
+/* Make the design responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        transform: translateX(-250px); /* Sidebar hidden by default on small screens */
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .sidebar.active {
+        transform: translateX(0); /* Show sidebar when active */
+    }
+
+    /* Add styles for toggle button, visible only on small screens */
+    .toggle-btn {
+        display: block;
+        background-color: #c20690;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 10;
+    }
+}
+
+/* Hide toggle button on larger screens */
+@media (min-width: 769px) {
+    .toggle-btn {
+        display: none; /* Hide the button on larger screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        transform: translateX(-100%); /* Fully hide sidebar on extra small screens */
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+}

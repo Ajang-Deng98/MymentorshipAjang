@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="#">Home</a>
+        <a href="{{ url_for('book_appointment') }}">Book Your Mentorship Appointment</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <a href="{{ url_for('settings') }}">Settings</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <div class="main">
+        <div class="header">
+            <h1>Change Password</h1>
+        </div>
+
+        <div class="form-container">
+            <form method="POST" action="{{ url_for('settings') }}">
+                <label for="old_password">Old Password</label>
+                <input type="password" id="old_password" name="old_password" required>
+
+                <label for="new_password">New Password</label>
+                <input type="password" id="new_password" name="new_password" required>
+
+                <label for="confirm_password">Confirm New Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+
+                <button type="submit">Update Password</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

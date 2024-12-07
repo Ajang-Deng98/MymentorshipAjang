@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Varela+Round&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <a href="/">Home</a>
+        <a href="/admin_dashboard">Dashboard</a>
+        <a href="/book_appointment">Book Appointment</a>
+    </div>
+
+    <div class="main">
+        <div class="header">
+            <h1>Admin Dashboard</h1>
+        </div>
+
+        <div class="overview">
+            <div class="card">
+                <h3>Total Users</h3>
+                <p>{{ total_users }}</p>
+            </div>
+            <div class="card">
+                <h3>Total Appointments</h3>
+                <p>{{ total_appointments }}</p>
+            </div>
+        </div>
+
+        <div class="appointments-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in recent_appointments %}
+                    <tr>
+                        <td>{{ appointment[0] }}</td>
+                        <td>{{ appointment[1] }}</td>
+                        <td>{{ appointment[2] }}</td>
+                        <td>{{ appointment[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
